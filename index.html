@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>خُطوة للصلاة — دليلك الهادئ لتعلّم الصلاة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+            amiri: ['"Amiri"', 'Georgia', 'serif']
+          },
+          colors: {
+            cream: {
+              50: '#FCFBF8',
+              100: '#F7F4EE',
+              200: '#EDE7DC'
+            },
+            emeraldDeep: {
+              50: '#ECFDF5',
+              100: '#D1FAE5',
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065F46',
+              900: '#064E3B'
+            },
+            goldWarm: {
+              100: '#FEF3C7',
+              400: '#D4A853',
+              500: '#B8892E',
+              600: '#9A6F1E'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --dhikr-size: 1.4rem;
+      --bg-page: #F7F4EE;
+      --bg-card: #FFFFFF;
+      --svg-ink: #065F46;
+      --svg-ink-soft: #0F766E;
+      --svg-accent: #C89B3C;
+      --svg-mat: #E6EFEA;
+    }
+
+    html.dark {
+      --bg-page: #0B1215;
+      --bg-card: #131E22;
+      --svg-ink: #6EE7B7;
+      --svg-ink-soft: #34D399;
+      --svg-accent: #E5B95C;
+      --svg-mat: #1A2B30;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-page);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .dhikr-text {
+      font-family: 'Amiri', Georgia, serif;
+      font-size: var(--dhikr-size);
+      line-height: 2.25;
+      word-spacing: 2px;
+    }
+
+    .meaning-word {
+      border-bottom: 2px dotted rgba(184, 137, 46, 0.75);
+      cursor: pointer;
+      padding: 0 2px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .meaning-word:hover,
+    .meaning-word.active-word {
+      background-color: rgba(212, 168, 83, 0.2);
+    }
+
+    .recall-hidden {
+      filter: blur(8px);
+      user-select: none;
+      opacity: 0.45;
+      transition: filter 0.28s ease, opacity 0.28s ease;
+    }
+
+    .recall-revealed {
+      filter: blur(0);
+      opacity: 1;
+      transition: filter 0.28s ease, opacity 0.28s ease;
+    }
+
+    .fade-in {
+      animation: fadeSlide 0.25s ease-out;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .safe-bottom {
+      padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .posture-photo {
+      width: 100%;
+      max-height: 245px;
+      object-fit: contain;
+      border-radius: 0.85rem;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 dark:text-slate-100 antialiased min-h-screen transition-colors duration-200">
+  <!-- App Container (Mobile-first centered layout) -->
+  <div class="max-w-lg mx-auto min-h-screen flex flex-col relative pb-24">
+    <!-- Top Header -->
+    <header class="sticky top-0 z-30 backdrop-blur-md bg-[#F7F4EE]/90 dark:bg-[#0B1215]/90 border-b border-stone-200/80 dark:border-slate-800/80 px-4 py-3">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 rounded-xl bg-emeraldDeep-700 dark:bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3c2.5 2.5 5 4.8 5 8.5V19H7v-7.5C7 7.8 9.5 5.5 12 3z" />
+              <path d="M5 19h14" />
+              <path d="M12 8v3" />
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <h1 class="text-base font-bold text-slate-900 dark:text-white leading-tight truncate">خُطوة للصلاة</h1>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">دليلك الهادئ لتعلّم الصلاة بيسر</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button id="btn-header-reading-sheet" type="button" title="ورقة القراءة أثناء الصلاة" class="h-9 px-2.5 rounded-lg bg-emeraldDeep-50 dark:bg-emerald-950/80 border border-emeraldDeep-200 dark:border-emerald-800 text-emeraldDeep-800 dark:text-emerald-300 text-[11px] font-bold flex items-center gap-1 hover:bg-emeraldDeep-100 dark:hover:bg-emerald-900/60 transition">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span class="hidden sm:inline">أثناء الصلاة</span>
+          </button>
+          <div class="flex items-center bg-white dark:bg-slate-800/90 border border-stone-200 dark:border-slate-700 rounded-lg p-0.5 shadow-xs" role="group" aria-label="حجم خط الأذكار">
+            <button id="btn-font-dec" type="button" title="تصغير خط الأذكار" class="px-2 py-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-stone-100 dark:hover:bg-slate-700 rounded-md transition">أ-</button>
+            <button id="btn-font-inc" type="button" title="تكبير خط الأذكار" class="px-2 py-1 text-xs font-bold text-emeraldDeep-700 dark:text-emerald-400 hover:bg-stone-100 dark:hover:bg-slate-700 rounded-md transition">أ+</button>
+          </div>
+          <button id="btn-theme-toggle" type="button" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي" class="w-9 h-9 rounded-lg bg-white dark:bg-slate-800/90 border border-stone-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-amber-300 hover:bg-stone-100 dark:hover:bg-slate-700 transition shadow-xs">
+            <span id="theme-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main View Mount -->
+    <main id="app-main" class="flex-1 px-4 pt-4 pb-6"></main>
+
+    <!-- Subtle Toast Notification -->
+    <div id="app-toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300">
+      <div id="app-toast-text" class="bg-slate-900 dark:bg-emerald-700 text-white text-xs font-medium px-4 py-2.5 rounded-full shadow-lg whitespace-nowrap"></div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-[#101A1E]/95 backdrop-blur-md border-t border-stone-200 dark:border-slate-800 safe-bottom" aria-label="التنقل الرئيسي">
+      <div class="max-w-lg mx-auto grid grid-cols-4 px-1 pt-1.5 pb-1">
+        <button data-tab="start" type="button" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition gap-1">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 10.5L12 3l9 7.5" />
+            <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
+          </svg>
+          <span class="text-[11px] font-semibold">ابدأ هنا</span>
+        </button>
+
+        <button data-tab="pray" type="button" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition gap-1">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="5" r="2.2" />
+            <path d="M12 8.5v5.5" />
+            <path d="M9 11.5h6" />
+            <path d="M9.5 20l2.5-6 2.5 6" />
+          </svg>
+          <span class="text-[11px] font-semibold">صلِّ معي</span>
+        </button>
+
+        <button data-tab="memorize" type="button" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition gap-1">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            <path d="M9 7h7" />
+            <path d="M9 11h5" />
+          </svg>
+          <span class="text-[11px] font-semibold">ركن الحفظ</span>
+        </button>
+
+        <button data-tab="consistency" type="button" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition gap-1">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            <path d="M8.5 12.5l2.3 2.3 4.8-5.3" />
+          </svg>
+          <span class="text-[11px] font-semibold">الثبات</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Full-Screen Quick Reading Mode Modal (During Prayer + Wake Lock) -->
+  <div id="reading-sheet-modal" class="fixed inset-0 z-50 hidden bg-[#F7F4EE] dark:bg-[#0B1215] overflow-y-auto">
+    <div class="max-w-lg mx-auto min-h-screen flex flex-col">
+      <div class="sticky top-0 z-20 backdrop-blur-md bg-[#F7F4EE]/95 dark:bg-[#0B1215]/95 border-b border-stone-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between gap-2">
+        <div>
+          <h2 class="text-sm font-bold text-slate-900 dark:text-white">ورقة القراءة أثناء الصلاة</h2>
+          <p id="wake-lock-status" class="text-[11px] text-emeraldDeep-700 dark:text-emerald-400">ضع الهاتف أمامك واقرأ بهدوء دون لمس الشاشة</p>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <button id="btn-sheet-font-dec" type="button" class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-xs font-bold">أ-</button>
+          <button id="btn-sheet-font-inc" type="button" class="px-2.5 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-xs font-bold text-emeraldDeep-700 dark:text-emerald-400">أ+</button>
+          <button id="btn-close-reading-sheet" type="button" class="px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-slate-700 text-white text-xs font-bold">إغلاق</button>
+        </div>
+      </div>
+
+      <div id="reading-sheet-content" class="p-4 space-y-4 pb-10"></div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       APP_DATA — بنية البيانات المركزية (الصور، الصوتيات، والنصوص)
+       ========================================================================= */
+    const APP_DATA = {
+      welcome: {
+        title: "خطوة جميلة.. لا تشيل هم الكمال من أول يوم، المهم نبدأ.",
+        subtitle: "الصلاة علاقة هادئة مع الله وليست اختباراً صعباً. هنا ستتعلّمها بالتدرّج، خطوة بخطوة، وتقدر تبدأ تصلي من اليوم مباشرة."
+      },
+
+      // مسارات الصور الـ 3D داخل مجلد images/ (يُجرّب jpg ثم webp ثم png ثم الرسم الاحتياطي)
+      postureImages: {
+        takbir: "images/takbir",
+        qiyam: "images/qiyam",
+        ruku: "images/ruku",
+        itidal: "images/itidal",
+        sujud: "images/sujud",
+        jalsa: "images/jalsa",
+        tashahhud: "images/tashahhud",
+        taslim: "images/taslim"
+      },
+
+      beforePrayerChecklist: [
+        {
+          icon: "qibla",
+          title: "اتجاه القبلة",
+          text: "استقبل القبلة (اتجاه الكعبة). يمكنك معرفتها بسهولة عبر أي تطبيق مواقيت صلاة أو بوصلة القبلة في هاتفك، أو بسؤال من حولك."
+        },
+        {
+          icon: "clean",
+          title: "طهارة المكان واللباس",
+          text: "صلِّ في مكان نظيف وطاهر، بملابس نظيفة ساترة (من السرة إلى الركبة على الأقل، والأجمل أن تكون بلباس مرتّب ومحتشم)."
+        },
+        {
+          icon: "wudu",
+          title: "معلومة تريحك عن الوضوء",
+          text: "لا يلزمك إعادة الوضوء لكل صلاة! إذا توضأت للظهر مثلاً ولم ينتقض وضوؤك (بدخول الخلاء أو خروج ريح أو نوم عميق)، تصلي به العصر مباشرة بكل يسر."
+        }
+      ],
+
+      prayers: [
+        { id: "fajr", name: "الفجر", rakahs: 2, timeHint: "قبل الشروق", voiceType: "jahri_all", tashahhudMiddle: false },
+        { id: "dhuhr", name: "الظهر", rakahs: 4, timeHint: "منتصف النهار", voiceType: "sirri_all", tashahhudMiddle: true },
+        { id: "asr", name: "العصر", rakahs: 4, timeHint: "بعد الظهر", voiceType: "sirri_all", tashahhudMiddle: true },
+        { id: "maghrib", name: "المغرب", rakahs: 3, timeHint: "بعد الغروب", voiceType: "jahri_first_two", tashahhudMiddle: true },
+        { id: "isha", name: "العشاء", rakahs: 4, timeHint: "في المساء", voiceType: "jahri_first_two", tashahhudMiddle: true }
+      ],
+
+      wuduSteps: [
+        {
+          id: "w1",
+          svg: "wudu_niyyah",
+          title: "النيّة والتسمية",
+          count: "في القلب",
+          action: "انْوِ بقلبك أنك تتوضأ للصلاة، ثم قل: «بِسْمِ اللَّهِ».",
+          tip: "النيّة محلّها القلب، لا يلزم التلفّظ بها."
+        },
+        {
+          id: "w2",
+          svg: "wudu_hands",
+          title: "غسل الكفّين",
+          count: "3 مرات",
+          action: "اغسل يديك إلى الرسغين جيداً، وخلّل بين أصابعك.",
+          tip: "ابدأ باليد اليمنى ثم اليسرى."
+        },
+        {
+          id: "w3",
+          svg: "wudu_mouth_nose",
+          title: "المضمضة والاستنشاق",
+          count: "3 مرات",
+          action: "خذ ماءً لفمك وحرّكه ثم أخرجه، واستنشق ماءً خفيفاً بأنفك واستنثره.",
+          tip: "يكفي بلطف دون مبالغة مزعجة."
+        },
+        {
+          id: "w4",
+          svg: "wudu_face",
+          title: "غسل الوجه كاملاً",
+          count: "3 مرات",
+          action: "اغسل وجهك من منابت شعر الرأس إلى أسفل الذقن، ومن الأذن إلى الأذن.",
+          tip: "هذا من فروض الوضوء الأساسية."
+        },
+        {
+          id: "w5",
+          svg: "wudu_arms",
+          title: "غسل اليدين إلى المرفقين",
+          count: "3 مرات",
+          action: "اغسل يدك اليمنى من أطراف الأصابع حتى تشمل المرفق (الكوع)، ثم اليسرى مثلها.",
+          tip: "تأكد من وصول الماء للمرفق كاملاً."
+        },
+        {
+          id: "w6",
+          svg: "wudu_head_ears",
+          title: "مسح الرأس والأذنين",
+          count: "مرة واحدة",
+          action: "بلّل يديك وامسح رأسك من الأمام للخلف ثم أرجعهما، وامسح أذنيك من الداخل والخارج.",
+          tip: "مسح لطيف بالماء دون الحاجة لإغراق الشعر."
+        },
+        {
+          id: "w7",
+          svg: "wudu_feet",
+          title: "غسل القدمين إلى الكعبين",
+          count: "3 مرات",
+          action: "اغسل قدمك اليمنى حتى الكعبين (العظمتان البارزتان) وخلّل بين الأصابع، ثم اليسرى.",
+          tip: "وبهذا أصبحت جاهزاً للصلاة! يستحب أن تقول بعدها: «أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ»."
+        }
+      ],
+
+      liturgy: {
+        takbir: { text: "اللَّهُ أَكْبَرُ" },
+        istiftah: { text: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَٰهَ غَيْرُكَ." },
+        fatiha: {
+          text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ ۝ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ.",
+          ameen: "آمِينَ"
+        },
+        surahIkhlas: {
+          title: "سورة الإخلاص (مثال قصير وسهل)",
+          text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ."
+        },
+        surahKawthar: {
+          title: "سورة الكوثر (أقصر سورة في القرآن)",
+          text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ ۝ فَصَلِّ لِرَبِّكَ وَانْحَرْ ۝ إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ."
+        },
+        ruku: { text: "سُبْحَانَ رَبِّيَ الْعَظِيمِ" },
+        riseFromRuku: {
+          rising: "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ",
+          standing: "رَبَّنَا وَلَكَ الْحَمْدُ"
+        },
+        sujud: { text: "سُبْحَانَ رَبِّيَ الْأَعْلَى" },
+        betweenSujud: {
+          easy: "رَبِّ اغْفِرْ لِي",
+          full: "رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي"
+        },
+        tashahhud: {
+          text: "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ، السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ، السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ، أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ."
+        },
+        ibrahimiyyah: {
+          text: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ."
+        },
+        taslim: { text: "السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ" },
+        afterPrayer: [
+          { label: "الاستغفار (3 مرات)", text: "أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ." },
+          { label: "دعاء لطيف", text: "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ." },
+          { label: "التسبيح المختصر", text: "سُبْحَانَ اللَّهِ (33) • الْحَمْدُ لِلَّهِ (33) • اللَّهُ أَكْبَرُ (33)" }
+        ]
+      },
+
+      memorizationItems: [
+        {
+          id: "fatiha",
+          priority: 1,
+          title: "سورة الفاتحة",
+          subtitle: "أهم ركن في كل ركعة",
+          targetReps: 5,
+          // تلاوة واضحة للشيخ مشاري العفاسي عبر الإنترنت (ويمكن استبدالها بـ audio/fatiha.mp3)
+          audioUrl: "https://server8.mp3quran.net/afs/001.mp3",
+          localFallbackAudio: "audio/fatiha.mp3",
+          audioLabel: "استمع لتلاوة سورة الفاتحة (مشاري العفاسي)",
+          segments: [
+            { text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ" },
+            { text: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ" },
+            { text: "الرَّحْمَٰنِ الرَّحِيمِ" },
+            { text: "مَالِكِ يَوْمِ الدِّينِ" },
+            { text: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ" },
+            { text: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ" },
+            { text: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ" }
+          ],
+          meanings: {
+            "الْعَالَمِينَ": "كل المخلوقات في السماوات والأرض.",
+            "يَوْمِ الدِّينِ": "يوم القيامة والحساب والجزاء.",
+            "نَسْتَعِينُ": "نطلب منك وحدك العون والتوفيق في كل أمورنا.",
+            "الصِّرَاطَ الْمُسْتَقِيمَ": "الطريق الواضح المستقيم الموصل إلى رضا الله.",
+            "الضَّالِّينَ": "الذين ابتعدوا عن طريق الحق بغير علم."
+          }
+        },
+        {
+          id: "tashahhud",
+          priority: 2,
+          title: "التشهد الأول",
+          subtitle: "صيغة ابن مسعود المشهورة والميسّرة",
+          targetReps: 5,
+          audioUrl: "audio/tashahhud.mp3",
+          audioLabel: "استمع للتشهد الأول (لإتقان النطق والتشكيل)",
+          segments: [
+            { text: "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ" },
+            { text: "السَّلَامُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ" },
+            { text: "السَّلَامُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ" },
+            { text: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ" },
+            { text: "وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ" }
+          ],
+          meanings: {
+            "التَّحِيَّاتُ": "كل عبارات التعظيم والثناء والملك الكامل لله وحده.",
+            "وَالصَّلَوَاتُ": "الصلوات والأدعية كلها خالصة لله.",
+            "وَالطَّيِّبَاتُ": "الأعمال والأقوال الصالحة الطيبة كلها لله.",
+            "وَبَرَكَاتُهُ": "زيادة الخير والفضل الدائم من الله.",
+            "الصَّالِحِينَ": "كل مؤمن قائم بحق الله وحق عباده في السماء والأرض."
+          }
+        },
+        {
+          id: "ibrahimiyyah",
+          priority: 3,
+          title: "الصلاة الإبراهيمية",
+          subtitle: "تُقال في الجلوس الأخير قبل التسليم",
+          targetReps: 5,
+          audioUrl: "audio/ibrahimiyyah.mp3",
+          audioLabel: "استمع للصلاة الإبراهيمية",
+          segments: [
+            { text: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ" },
+            { text: "كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ" },
+            { text: "اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ" },
+            { text: "كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ" }
+          ],
+          meanings: {
+            "صَلِّ": "أثنِ عليه في الملأ الأعلى وارفع قدره.",
+            "آلِ مُحَمَّدٍ": "أهل بيته وأتباعه المؤمنون.",
+            "حَمِيدٌ": "محمود على كل نعمه وأفعاله سبحانه.",
+            "مَجِيدٌ": "عظيم الشأن والقدر والفضل.",
+            "بَارِكْ": "أدم الخير والفضل وزِده وثبّته."
+          }
+        },
+        {
+          id: "adhkar",
+          priority: 4,
+          title: "أذكار الركوع والسجود والجلوس",
+          subtitle: "عبارات قصيرة وسهلة الحفظ في دقائق",
+          targetReps: 5,
+          audioUrl: "audio/adhkar.mp3",
+          audioLabel: "استمع لأذكار الحركات",
+          segments: [
+            { label: "في الركوع", text: "سُبْحَانَ رَبِّيَ الْعَظِيمِ" },
+            { label: "عند الرفع من الركوع", text: "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ — رَبَّنَا وَلَكَ الْحَمْدُ" },
+            { label: "في السجود", text: "سُبْحَانَ رَبِّيَ الْأَعْلَى" },
+            { label: "بين السجدتين", text: "رَبِّ اغْفِرْ لِي" }
+          ],
+          meanings: {
+            "سُبْحَانَ": "أنزّه الله عن كل نقص وأعظّمه.",
+            "الْعَظِيمِ": "ذو العظمة المطلقة الذي لا أعظم منه.",
+            "سَمِعَ اللَّهُ": "استجاب الله وقَبِل حمد من حمده.",
+            "الْأَعْلَى": "العالي بذاته وقدره فوق كل شيء."
+          }
+        }
+      ],
+
+      faqs: [
+        {
+          q: "هل يجوز أن أقرأ التشهد أو الفاتحة من الموبايل أو ورقة في بداية تعلّمي؟",
+          a: "نعم، يجوز لك ذلك تماماً في مرحلة التعلّم وحتى تتقن الحفظ. يمكنك فتح «ورقة القراءة أثناء الصلاة» من الأعلى ووضع الموبايل أمامك والقراءة منه بهدوء. الأهم ألا تؤجل الصلاة بحجة عدم الحفظ؛ فالصلاة وأنت تتعلّم خير بكثير من تركها، وخلال أيام قليلة ستجد نفسك حفظتها تلقائياً مع التكرار."
+        },
+        {
+          q: "هل يجب أن أتوضأ من جديد لكل صلاة؟",
+          a: "لا، أبداً! وضوؤك يبقى سارياً وتصلي به أكثر من صلاة ما لم ينتقض بأحد نواقض الوضوء (مثل دخول الخلاء، أو خروج ريح، أو النوم العميق). هذه الرخصة تجعل المحافظة على الصلوات أسهل بكثير."
+        },
+        {
+          q: "ماذا أفعل لو نسيت كلمة أو أخطأت في عدد الركعات؟",
+          a: "لا تقلق أبداً، النسيان طبيعي جداً ويحدث حتى لمن يصلي منذ سنوات. إذا نسيت كلمة وتذكرتها أكمل ببساطة، وإذا شككت في عدد الركعات (هل صليت اثنتين أم ثلاثاً مثلاً) فابنِ على العدد الأقل المتيقّن وأكمل صلاتك، ثم اسجد سجدتين إضافيتين خفيفتين قبل التسليم (سجود السهو) وصلاتك صحيحة تماماً بإذن الله."
+        },
+        {
+          q: "هل تصح صلاتي لو لم أكن حافظاً دعاء الاستفتاح أو سورة بعد الفاتحة؟",
+          a: "نعم، صلاتك صحيحة ومقبولة تماماً بإذن الله. دعاء الاستفتاح وقراءة سورة بعد الفاتحة هي سنن جميلة تزيد الأجر، لكنها ليست شرطاً لصحة الصلاة. لذلك وفرنا لك «وضع البداية السهلة» هنا لتصلي بالأساسيات فقط الآن، ومتى شعرت بالراحة يمكنك إضافة السنن تدريجياً."
+        },
+        {
+          q: "كيف أثبت على الصلاة ولا أقطعها بعد أيام؟",
+          a: "السر في البساطة والاستمرار، لا في الحماس المفاجئ: (1) اربط الصلاة بموعد ثابت في يومك، مثل أن تتوضأ فور سماع الأذان. (2) لا تنتظر أن تكون في «مزاج مثالي»؛ صلِّ حتى لو كنت متعباً، فركعتان بهدوء لا تأخذان 3 دقائق. (3) إذا فاتتك صلاة أو تعثّرت يوماً، لا تستسلم لشعور الإحباط؛ ارجع فوراً في الصلاة التي تليها."
+        },
+        {
+          q: "ماذا لو فاتتني صلاة بسبب النوم أو الانشغال؟",
+          a: "بمجرد أن تستيقظ أو تتذكرها، توضأ وصلِّها فوراً؛ فالنبي ﷺ قال: «من نسي صلاة فليصلّها إذا ذكرها». لا تترك الشيطان يقنعك بأن اليوم قد «ضاع»، بل ابدأ من اللحظة الحالية."
+        },
+        {
+          q: "هل أقرأ بصوت عالٍ أم بصوت منخفض؟",
+          a: "الأصل أن تقرأ بصوت هامس تسمع به نفسك فقط (بتحريك الشفتين) في الظهر والعصر، وفي الركعات الأخيرة من المغرب والعشاء. أما في الفجر وأول ركعتين من المغرب والعشاء فيستحب أن ترفع صوتك قليلاً بشكل لطيف ومريح، ولو قرأتها كلها بصوت خفيف فصلاتك صحيحة تماماً."
+        }
+      ]
+    };
+
+    /* =========================================================================
+       INLINE SVG FALLBACKS (تظهر تلقائياً للوضوء أو كبديل احتياطي لصور الصلاة)
+       ========================================================================= */
+    const SVG_LIBRARY = {
+      takbir: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="158" rx="68" ry="8" fill="var(--svg-mat)"/><rect x="64" y="152" width="92" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="110" cy="34" r="13" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M96 60 C96 52 124 52 124 60 L127 104 L93 104 Z" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3" stroke-linejoin="round"/><path d="M96 64 L78 58 L80 42 M124 64 L142 58 L140 42" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="80" cy="39" r="3.5" fill="var(--svg-accent)"/><circle cx="140" cy="39" r="3.5" fill="var(--svg-accent)"/><path d="M101 104 L100 150 M119 104 L120 150 M95 151 L104 151 M116 151 L125 151" stroke="var(--svg-ink)" stroke-width="3.4" stroke-linecap="round"/></svg>`,
+      qiyam: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="158" rx="68" ry="8" fill="var(--svg-mat)"/><rect x="64" y="152" width="92" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="110" cy="34" r="13" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M96 60 C96 52 124 52 124 60 L127 104 L93 104 Z" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3" stroke-linejoin="round"/><path d="M95 62 L85 78 L106 81 M125 62 L135 78 L112 79" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="103" y="75" width="14" height="7" rx="3.5" fill="var(--svg-accent)"/><path d="M101 104 L100 150 M119 104 L120 150 M95 151 L104 151 M116 151 L125 151" stroke="var(--svg-ink)" stroke-width="3.4" stroke-linecap="round"/></svg>`,
+      ruku: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="158" rx="74" ry="8" fill="var(--svg-mat)"/><rect x="54" y="152" width="112" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="72" cy="74" r="12" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M86 76 L138 76 C144 76 146 82 145 88 L140 150" stroke="var(--svg-ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 79 L115 113 L136 113" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="137" cy="113" r="4" fill="var(--svg-accent)"/><path d="M132 151 L147 151" stroke="var(--svg-ink)" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+      itidal: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="158" rx="68" ry="8" fill="var(--svg-mat)"/><rect x="64" y="152" width="92" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="110" cy="34" r="13" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M96 60 C96 52 124 52 124 60 L127 104 L93 104 Z" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3" stroke-linejoin="round"/><path d="M94 63 L87 98 M126 63 L133 98 M101 104 L100 150 M119 104 L120 150 M95 151 L104 151 M116 151 L125 151" stroke="var(--svg-ink)" stroke-width="3.3" stroke-linecap="round"/></svg>`,
+      sujud: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="154" rx="82" ry="9" fill="var(--svg-mat)"/><rect x="42" y="148" width="136" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="67" cy="133" r="11" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M77 125 L125 94 C132 90 139 95 137 103 L125 144 L156 144 L166 131" stroke="var(--svg-ink)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M93 116 L90 144 L78 144" stroke="var(--svg-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      jalsa: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="156" rx="74" ry="8" fill="var(--svg-mat)"/><rect x="54" y="150" width="112" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="124" cy="54" r="12" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M124 68 L128 118 L92 132 L128 146 L148 146" stroke="var(--svg-ink)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M122 84 L106 108 L92 122" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      tashahhud: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="156" rx="74" ry="8" fill="var(--svg-mat)"/><rect x="54" y="150" width="112" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="124" cy="54" r="12" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M124 68 L128 118 L92 132 L128 146 L148 146" stroke="var(--svg-ink)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M122 84 L105 108 L89 119" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M89 119 L74 114" stroke="var(--svg-accent)" stroke-width="3.4" stroke-linecap="round"/></svg>`,
+      taslim: `<svg viewBox="0 0 220 175" class="w-48 h-40 mx-auto" fill="none"><ellipse cx="110" cy="156" rx="74" ry="8" fill="var(--svg-mat)"/><rect x="54" y="150" width="112" height="5" rx="2.5" fill="var(--svg-accent)" opacity="0.55"/><circle cx="110" cy="56" r="13" stroke="var(--svg-ink)" stroke-width="3.2"/><path d="M94 82 C94 74 126 74 126 82 L130 124 L90 124 Z" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3" stroke-linejoin="round"/><path d="M82 146 L138 146 C144 146 144 134 134 134 L86 134 C76 134 76 146 82 146 Z" stroke="var(--svg-ink)" stroke-width="3.2"/></svg>`,
+      wudu_niyyah: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><path d="M90 18 C90 18 65 52 65 70 C65 84 76 96 90 96 C104 96 115 84 115 70 C115 52 90 18 90 18 Z" fill="var(--svg-ink)" opacity="0.12" stroke="var(--svg-ink)" stroke-width="3"/><path d="M82 68 C82 74 86 79 91 81" stroke="var(--svg-accent)" stroke-width="3" stroke-linecap="round"/></svg>`,
+      wudu_hands: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><path d="M56 76 L72 52 C75 48 80 50 78 55 L72 68 M78 55 L86 44 C89 40 94 43 91 48 L84 65 M91 48 L98 44 C102 42 106 46 102 51 L94 69 L106 60 C110 58 113 62 109 67 L90 88 C82 95 66 95 58 86 Z" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="2.8" stroke-linejoin="round"/><path d="M90 16 C90 16 84 26 84 31 C84 34 87 37 90 37 C93 37 96 34 96 31 C96 26 90 16 90 16 Z" fill="var(--svg-accent)"/></svg>`,
+      wudu_mouth_nose: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><circle cx="90" cy="54" r="30" stroke="var(--svg-ink)" stroke-width="3" fill="var(--svg-ink)" opacity="0.08"/><path d="M90 48 L86 60 L93 60" stroke="var(--svg-ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M81 69 C85 74 95 74 99 69" stroke="var(--svg-accent)" stroke-width="3" stroke-linecap="round"/></svg>`,
+      wudu_face: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><rect x="62" y="22" width="56" height="72" rx="28" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3"/><path d="M74 44 C82 36 98 36 106 44 M74 66 C82 76 98 76 106 66" stroke="var(--svg-accent)" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+      wudu_arms: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><path d="M36 74 L92 64 L132 42" stroke="var(--svg-ink)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.18"/><path d="M36 74 L92 64 L132 42" stroke="var(--svg-ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="92" cy="64" r="7" stroke="var(--svg-accent)" stroke-width="2.6" fill="var(--bg-card)"/></svg>`,
+      wudu_head_ears: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><circle cx="90" cy="64" r="28" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3"/><path d="M58 46 C68 24 112 24 122 46" stroke="var(--svg-accent)" stroke-width="3.2" stroke-linecap="round"/><path d="M61 58 C55 58 55 72 61 72 M119 58 C125 58 125 72 119 72" stroke="var(--svg-ink)" stroke-width="2.8" stroke-linecap="round"/></svg>`,
+      wudu_feet: `<svg viewBox="0 0 180 120" class="w-40 h-28 mx-auto" fill="none"><path d="M98 24 L98 76 C98 84 92 88 82 88 L52 88 C45 88 45 98 54 98 L106 98 C114 98 118 92 118 82 L118 24" fill="var(--svg-ink)" opacity="0.1" stroke="var(--svg-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="107" cy="76" r="5" fill="var(--svg-accent)"/></svg>`
+    };
+
+    // محاولة تحميل صورة 3D بصيغ (jpg -> webp -> png) ثم عرض الرسم الاحتياطي بسلاسة
+    window.handlePostureImgError = function (imgEl, key) {
+      const exts = [".webp", ".png"];
+      const step = Number(imgEl.dataset.fallbackStep || "0");
+      const base = APP_DATA.postureImages[key];
+      if (base && step < exts.length) {
+        imgEl.dataset.fallbackStep = String(step + 1);
+        imgEl.src = base + exts[step];
+      } else {
+        const container = imgEl.parentElement;
+        if (container) {
+          container.innerHTML = SVG_LIBRARY[key] || "";
+        }
+      }
+    };
+
+    function renderPostureVisual(key, altText) {
+      const base = APP_DATA.postureImages[key];
+      if (!base) return SVG_LIBRARY[key] || "";
+      return `
+        <div class="w-full flex items-center justify-center">
+          <img
+            src="${base}.jpg"
+            alt="${altText}"
+            loading="eager"
+            class="posture-photo"
+            onerror="window.handlePostureImgError(this, '${key}')"
+          />
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       STATE & PERSISTENCE
+       ========================================================================= */
+    const STORAGE_KEY = "khotwa_salah_state_v1";
+    const FONT_STEPS = [1.18, 1.38, 1.58, 1.8];
+
+    function getLocalDateKey(offsetDays = 0) {
+      const d = new Date();
+      d.setDate(d.getDate() + offsetDays);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? (JSON.parse(raw) || {}) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          darkMode: state.darkMode,
+          fontIndex: state.fontIndex,
+          prayerMode: state.prayerMode,
+          memorized: state.memorized,
+          reps: state.reps,
+          trackerHistory: state.trackerHistory
+        }));
+      } catch (e) {}
+    }
+
+    const saved = loadSavedState();
+
+    const state = {
+      activeTab: "start",
+      darkMode: Boolean(saved.darkMode),
+      fontIndex: typeof saved.fontIndex === "number" ? Math.min(Math.max(saved.fontIndex, 0), FONT_STEPS.length - 1) : 1,
+      prayerMode: saved.prayerMode === "full" ? "full" : "easy",
+      beforeCardOpen: false,
+      wuduIndex: 0,
+      selectedPrayerId: "fajr",
+      stepIndex: 0,
+      prayerCompleted: false,
+      activeMemId: "fatiha",
+      recallMode: false,
+      revealedChunks: {},
+      selectedMeaning: null,
+      memorized: saved.memorized || {},
+      reps: saved.reps || {},
+      trackerHistory: saved.trackerHistory || {},
+      openFaqIndex: 0,
+      audioSpeed: 1,
+      audioPlaying: false,
+      audioProgress: 0,
+      audioErrorMsg: ""
+    };
+
+    /* =========================================================================
+       AUDIO PLAYER CONTROLLER (في ركن الحفظ)
+       ========================================================================= */
+    const audioEl = new Audio();
+    audioEl.preload = "none";
+    let currentAudioItemId = null;
+
+    function stopAudio(resetMsg = true) {
+      audioEl.pause();
+      audioEl.currentTime = 0;
+      state.audioPlaying = false;
+      state.audioProgress = 0;
+      if (resetMsg) state.audioErrorMsg = "";
+      currentAudioItemId = null;
+    }
+
+    function updateAudioUIOnly() {
+      const playBtn = document.getElementById("btn-audio-play");
+      const bar = document.getElementById("audio-progress-bar");
+      const errBox = document.getElementById("audio-error-msg");
+      if (playBtn) {
+        playBtn.innerHTML = state.audioPlaying
+          ? `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><span>إيقاف</span>`
+          : `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg><span>استمع</span>`;
+      }
+      if (bar) {
+        bar.style.width = `${state.audioProgress}%`;
+      }
+      if (errBox) {
+        errBox.textContent = state.audioErrorMsg;
+        errBox.classList.toggle("hidden", !state.audioErrorMsg);
+      }
+    }
+
+    audioEl.addEventListener("timeupdate", () => {
+      if (audioEl.duration && isFinite(audioEl.duration)) {
+        state.audioProgress = Math.min(100, Math.round((audioEl.currentTime / audioEl.duration) * 100));
+        updateAudioUIOnly();
+      }
+    });
+
+    audioEl.addEventListener("ended", () => {
+      state.audioPlaying = false;
+      state.audioProgress = 0;
+      updateAudioUIOnly();
+    });
+
+    audioEl.addEventListener("error", () => {
+      const active = APP_DATA.memorizationItems.find(i => i.id === currentAudioItemId);
+      if (active && active.localFallbackAudio && audioEl.src !== new URL(active.localFallbackAudio, location.href).href) {
+        audioEl.src = active.localFallbackAudio;
+        audioEl.playbackRate = state.audioSpeed;
+        audioEl.play().catch(() => {
+          state.audioPlaying = false;
+          state.audioErrorMsg = "تعذّر تشغيل الصوت حالياً (تحقق من الاتصال بالإنترنت أو أضف ملف الصوت في مجلد audio).";
+          updateAudioUIOnly();
+        });
+        return;
+      }
+      state.audioPlaying = false;
+      state.audioProgress = 0;
+      state.audioErrorMsg = active && active.audioUrl.startsWith("audio/")
+        ? `ملف الصوت غير مضاف بعد — ضع الملف (${active.audioUrl}) داخل المشروع ليعمل فوراً.`
+        : "تعذّر تحميل الصوت حالياً، تحقق من اتصال الإنترنت.";
+      updateAudioUIOnly();
+    });
+
+    function toggleItemAudio(item) {
+      if (!item || !item.audioUrl) return;
+      state.audioErrorMsg = "";
+      if (currentAudioItemId === item.id && state.audioPlaying) {
+        audioEl.pause();
+        state.audioPlaying = false;
+        updateAudioUIOnly();
+        return;
+      }
+      if (currentAudioItemId !== item.id) {
+        audioEl.src = item.audioUrl;
+        currentAudioItemId = item.id;
+        state.audioProgress = 0;
+      }
+      audioEl.playbackRate = state.audioSpeed;
+      audioEl.play().then(() => {
+        state.audioPlaying = true;
+        updateAudioUIOnly();
+      }).catch(() => {
+        state.audioPlaying = false;
+        state.audioErrorMsg = item.audioUrl.startsWith("audio/")
+          ? `ملف الصوت غير مضاف بعد — ضع الملف (${item.audioUrl}) داخل المشروع ليعمل فوراً.`
+          : "تعذّر تشغيل الصوت الآن، حاول مرة أخرى.";
+        updateAudioUIOnly();
+      });
+    }
+
+    /* =========================================================================
+       QUICK READING SHEET MODAL + WAKE LOCK API (إبقاء الشاشة مضاءة أثناء الصلاة)
+       ========================================================================= */
+    let wakeLockSentinel = null;
+    let isReadingSheetOpen = false;
+
+    async function requestWakeLock() {
+      const statusEl = document.getElementById("wake-lock-status");
+      if ("wakeLock" in navigator) {
+        try {
+          wakeLockSentinel = await navigator.wakeLock.request("screen");
+          if (statusEl) statusEl.textContent = "الشاشة ستبقى مضاءة تلقائياً أثناء الصلاة ✓";
+          wakeLockSentinel.addEventListener("release", () => {
+            wakeLockSentinel = null;
+          });
+        } catch (e) {
+          if (statusEl) statusEl.textContent = "ضع الهاتف أمامك واقرأ بهدوء دون لمس الشاشة";
+        }
+      } else if (statusEl) {
+        statusEl.textContent = "ضع الهاتف أمامك واقرأ بهدوء (تأكد من عدم قفل الشاشة سريعاً)";
+      }
+    }
+
+    async function releaseWakeLock() {
+      if (wakeLockSentinel) {
+        try {
+          await wakeLockSentinel.release();
+        } catch (e) {}
+        wakeLockSentinel = null;
+      }
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible" && isReadingSheetOpen) {
+        requestWakeLock();
+      }
+    });
+
+    function openReadingSheet() {
+      const modal = document.getElementById("reading-sheet-modal");
+      const content = document.getElementById("reading-sheet-content");
+      if (!modal || !content) return;
+      const L = APP_DATA.liturgy;
+
+      content.innerHTML = `
+        <div class="rounded-2xl bg-emeraldDeep-50 dark:bg-emerald-950/40 border border-emeraldDeep-200 dark:border-emerald-800/60 p-3.5 text-xs text-emeraldDeep-900 dark:text-emerald-200 leading-relaxed">
+          كل ما تحتاجه في صلاتك في صفحة واحدة مرتّبة: ابدأ بـ <strong>«اللَّهُ أَكْبَرُ»</strong>، ثم اقرأ من هنا بعينيك بهدوء.
+        </div>
+
+        <article class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200 dark:border-slate-800 p-4 shadow-xs">
+          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emeraldDeep-700 text-white mb-2">1 • في القيام (كل ركعة)</span>
+          <p class="dhikr-text text-slate-900 dark:text-white">${L.fatiha.text}</p>
+        </article>
+
+        <article class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200 dark:border-slate-800 p-4 shadow-xs space-y-3">
+          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emeraldDeep-700 text-white">2 • الركوع والاعتدال والسجود</span>
+          <div class="border-b border-stone-100 dark:border-slate-800 pb-2.5">
+            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">في الركوع (مرة تكفي، والسنة 3):</span>
+            <p class="dhikr-text text-slate-900 dark:text-white">${L.ruku.text}</p>
+          </div>
+          <div class="border-b border-stone-100 dark:border-slate-800 pb-2.5">
+            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">عند الرفع من الركوع والوقوف:</span>
+            <p class="dhikr-text text-slate-900 dark:text-white">${L.riseFromRuku.rising} — ${L.riseFromRuku.standing}</p>
+          </div>
+          <div class="border-b border-stone-100 dark:border-slate-800 pb-2.5">
+            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">في السجود (مرة تكفي، والسنة 3):</span>
+            <p class="dhikr-text text-slate-900 dark:text-white">${L.sujud.text}</p>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block">الجلوس بين السجدتين:</span>
+            <p class="dhikr-text text-slate-900 dark:text-white">${L.betweenSujud.easy}</p>
+          </div>
+        </article>
+
+        <article class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200 dark:border-slate-800 p-4 shadow-xs">
+          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emeraldDeep-700 text-white mb-2">3 • التشهد (بعد الركعة الثانية، وفي الأخيرة)</span>
+          <p class="dhikr-text text-slate-900 dark:text-white">${L.tashahhud.text}</p>
+        </article>
+
+        <article class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200 dark:border-slate-800 p-4 shadow-xs space-y-3">
+          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emeraldDeep-700 text-white">4 • الصلاة الإبراهيمية والتسليم (الجلوس الأخير فقط)</span>
+          <p class="dhikr-text text-slate-900 dark:text-white">${L.ibrahimiyyah.text}</p>
+          <div class="pt-2.5 border-t border-stone-100 dark:border-slate-800">
+            <span class="text-[11px] font-bold text-goldWarm-600 dark:text-amber-300 block">التسليم يميناً ثم يساراً:</span>
+            <p class="dhikr-text text-slate-900 dark:text-white">${L.taslim.text}</p>
+          </div>
+        </article>
+      `;
+
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      isReadingSheetOpen = true;
+      requestWakeLock();
+    }
+
+    function closeReadingSheet() {
+      const modal = document.getElementById("reading-sheet-modal");
+      if (modal) modal.classList.add("hidden");
+      document.body.style.overflow = "";
+      isReadingSheetOpen = false;
+      releaseWakeLock();
+    }
+
+    /* =========================================================================
+       PRAYER STEP GENERATOR (Easy Mode vs Full Mode + Transition Takbir + Voice per Rakah)
+       ========================================================================= */
+    function getRakahVoiceLabel(prayer, rakahNumber) {
+      if (prayer.voiceType === "jahri_all") {
+        return "هذه الركعة جهرية — اقرأ بصوت مسموع هادئ";
+      }
+      if (prayer.voiceType === "sirri_all") {
+        return "هذه الركعة سرّية — اقرأ بصوت هامس تسمع به نفسك";
+      }
+      return rakahNumber <= 2
+        ? "هذه الركعة جهرية — اقرأ بصوت مسموع هادئ"
+        : "هذه الركعة سرّية — اقرأ بصوت هامس تسمع به نفسك";
+    }
+
+    function buildPrayerSteps(prayerId, mode) {
+      const prayer = APP_DATA.prayers.find(p => p.id === prayerId) || APP_DATA.prayers[0];
+      const L = APP_DATA.liturgy;
+      const isFull = mode === "full";
+      const steps = [];
+
+      for (let r = 1; r <= prayer.rakahs; r++) {
+        const rakahLabel = `الركعة ${r} من ${prayer.rakahs}`;
+        const voiceHint = getRakahVoiceLabel(prayer, r);
+
+        // 1. تكبيرة الإحرام (الركعة الأولى فقط)
+        if (r === 1) {
+          steps.push({
+            rakah: r,
+            rakahLabel,
+            voiceHint,
+            title: "تكبيرة الإحرام",
+            svg: "takbir",
+            bodyAction: "قف مستقيماً باتجاه القبلة، وارفع يديك بحذاء أذنيك أو منكبيك، وانوِ الصلاة بقلبك.",
+            sayBlocks: [
+              { type: "essential", badge: "أساسي — بداية الصلاة", text: L.takbir.text }
+            ]
+          });
+        }
+
+        // 2. القيام وقراءة الفاتحة (+ تكبيرة الانتقال من الركعة السابقة للركعة 2 و3 و4)
+        const qiyamBlocks = [];
+        let transitionBadge = null;
+        let qiyamAction = "ضع يدك اليمنى فوق اليسرى على صدرك، وانظر بهدوء إلى موضع سجودك.";
+
+        if (r > 1) {
+          const fromTashahhud = prayer.tashahhudMiddle && r === 3;
+          transitionBadge = "تكبيرة القيام: قل «اللَّهُ أَكْبَرُ» وأنت تنهض للوقوف";
+          qiyamAction = fromTashahhud
+            ? "انهض من التشهد الأوسط واقفاً قائلاً «اللَّهُ أَكْبَرُ»، ثم ضع يدك اليمنى فوق اليسرى على صدرك، وانظر إلى موضع سجودك."
+            : "انهض من السجدة الثانية واقفاً قائلاً «اللَّهُ أَكْبَرُ»، ثم ضع يدك اليمنى فوق اليسرى على صدرك، وانظر إلى موضع سجودك.";
+        }
+
+        if (r === 1 && isFull) {
+          qiyamBlocks.push({ type: "sunnah", badge: "سُنّة — دعاء الاستفتاح", text: L.istiftah.text });
+        }
+
+        qiyamBlocks.push({
+          type: "essential",
+          badge: "أساسي — سورة الفاتحة",
+          text: L.fatiha.text,
+          subNote: isFull ? "ثم قل بعدها: آمِينَ" : null
+        });
+
+        if (isFull && r <= 2) {
+          const surah = r === 1 ? L.surahIkhlas : L.surahKawthar;
+          qiyamBlocks.push({ type: "sunnah", badge: `سُنّة — ${surah.title}`, text: surah.text });
+        }
+
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: r === 1 ? "القيام وقراءة الفاتحة" : `القيام للركعة ${r} وقراءة الفاتحة`,
+          svg: "qiyam",
+          transitionBadge,
+          bodyAction: qiyamAction,
+          sayBlocks: qiyamBlocks,
+          easyHint: !isFull && r <= 2 ? "في البداية السهلة تكفي الفاتحة وحدها وتصح بها الصلاة تماماً." : null
+        });
+
+        // 3. الركوع
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: "الركوع",
+          svg: "ruku",
+          bodyAction: "قل «اللَّهُ أَكْبَرُ» وانحنِ بظهر مستقيم، وضع كفّيك على ركبتيك.",
+          sayBlocks: [
+            {
+              type: "essential",
+              badge: isFull ? "أساسي (مرة) • وسُنّة (3 مرات)" : "أساسي — مرة واحدة تكفي",
+              text: L.ruku.text,
+              repeatTag: isFull ? "× 3 مرات" : "× 1 مرة"
+            }
+          ]
+        });
+
+        // 4. الاعتدال من الركوع
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: "الاعتدال من الركوع",
+          svg: "itidal",
+          bodyAction: "ارفع ظهرك حتى تقف معتدلاً ومطمئناً تماماً ويداك مسترخيتان بجانبك.",
+          sayBlocks: [
+            { type: "essential", badge: "أثناء الرفع", text: L.riseFromRuku.rising },
+            { type: "essential", badge: "عند الاستقامة", text: L.riseFromRuku.standing }
+          ]
+        });
+
+        // 5. السجدة الأولى
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: "السجدة الأولى",
+          svg: "sujud",
+          bodyAction: "قل «اللَّهُ أَكْبَرُ» واسجد بهدوء على الأعضاء السبعة (الجبهة مع الأنف، الكفّين، الركبتين، وأطراف القدمين).",
+          sayBlocks: [
+            {
+              type: "essential",
+              badge: isFull ? "أساسي (مرة) • وسُنّة (3 مرات)" : "أساسي — مرة واحدة تكفي",
+              text: L.sujud.text,
+              repeatTag: isFull ? "× 3 مرات" : "× 1 مرة"
+            }
+          ]
+        });
+
+        // 6. الجلوس بين السجدتين
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: "الجلوس بين السجدتين",
+          svg: "jalsa",
+          bodyAction: "قل «اللَّهُ أَكْبَرُ» واجلس مطمئناً بظهر مستقيم، وضع يديك مفتوحتين على فخذيك.",
+          sayBlocks: [
+            {
+              type: "essential",
+              badge: isFull ? "أساسي • مع تكرار السُنّة" : "أساسي",
+              text: isFull ? L.betweenSujud.full : L.betweenSujud.easy
+            }
+          ]
+        });
+
+        // 7. السجدة الثانية
+        steps.push({
+          rakah: r,
+          rakahLabel,
+          voiceHint,
+          title: "السجدة الثانية",
+          svg: "sujud",
+          bodyAction: "قل «اللَّهُ أَكْبَرُ» واسجد مرة ثانية بنفس الطمأنينة والهدوء.",
+          sayBlocks: [
+            {
+              type: "essential",
+              badge: isFull ? "أساسي (مرة) • وسُنّة (3 مرات)" : "أساسي — مرة واحدة تكفي",
+              text: L.sujud.text,
+              repeatTag: isFull ? "× 3 مرات" : "× 1 مرة"
+            }
+          ]
+        });
+
+        // 8. التشهد الأوسط (في الصلوات الثلاثية والرباعية بعد الركعة 2)
+        if (prayer.tashahhudMiddle && r === 2) {
+          steps.push({
+            rakah: r,
+            rakahLabel,
+            voiceHint,
+            title: "التشهد الأوسط",
+            svg: "tashahhud",
+            bodyAction: "قل «اللَّهُ أَكْبَرُ» واجلس مطمئناً، وضع يدك اليسرى مبسوطة على فخذك الأيسر، وأشِر بسبابتك اليمنى بلطف للأمام.",
+            sayBlocks: [
+              { type: "essential", badge: "التشهد الأول", text: L.tashahhud.text }
+            ],
+            nextHint: "نكتفي بهذا الجزء هنا ونقوم للركعة الثالثة قائلاً «اللَّهُ أَكْبَرُ»، أما الصلاة الإبراهيمية فسنقرؤها في الجلوس الأخير."
+          });
+        }
+
+        // 9. التشهد الأخير والصلاة الإبراهيمية والتسليم
+        if (r === prayer.rakahs) {
+          steps.push({
+            rakah: r,
+            rakahLabel,
+            voiceHint,
+            title: "التشهد الأخير والصلاة الإبراهيمية",
+            svg: "tashahhud",
+            bodyAction: "قل «اللَّهُ أَكْبَرُ» واجلس مطمئناً للتشهد الأخير مع الإشارة بسبابتك اليمنى بلطف.",
+            sayBlocks: [
+              { type: "essential", badge: "أساسي — التشهد", text: L.tashahhud.text },
+              { type: "essential", badge: "أساسي — الصلاة الإبراهيمية", text: L.ibrahimiyyah.text }
+            ]
+          });
+
+          steps.push({
+            rakah: r,
+            rakahLabel,
+            voiceHint,
+            title: "التسليم (ختام الصلاة)",
+            svg: "taslim",
+            bodyAction: "التفت برأسك بهدوء نحو كتفك الأيمن وسلّم، ثم التفت نحو كتفك الأيسر وسلّم.",
+            sayBlocks: [
+              { type: "essential", badge: "التسليمة الأولى (يميناً)", text: L.taslim.text },
+              { type: "essential", badge: "التسليمة الثانية (يساراً)", text: L.taslim.text }
+            ]
+          });
+        }
+      }
+
+      return steps;
+    }
+
+    /* =========================================================================
+       TRACKER & STREAK HELPERS
+       ========================================================================= */
+    function getTodayRecord() {
+      const today = getLocalDateKey(0);
+      if (!state.trackerHistory[today]) {
+        state.trackerHistory[today] = { fajr: false, dhuhr: false, asr: false, maghrib: false, isha: false };
+      }
+      return state.trackerHistory[today];
+    }
+
+    function countPrayersOnDate(dateKey) {
+      const rec = state.trackerHistory[dateKey];
+      if (!rec) return 0;
+      return APP_DATA.prayers.reduce((sum, p) => sum + (rec[p.id] ? 1 : 0), 0);
+    }
+
+    function calculateStreak() {
+      let streak = 0;
+      const todayCount = countPrayersOnDate(getLocalDateKey(0));
+      let offset = todayCount > 0 ? 0 : -1;
+      for (let i = 0; i < 365; i++) {
+        if (countPrayersOnDate(getLocalDateKey(offset - i)) > 0) {
+          streak++;
+        } else {
+          break;
+        }
+      }
+      return streak;
+    }
+
+    /* =========================================================================
+       UI HELPERS (Toast, Theme, Font)
+       ========================================================================= */
+    let toastTimer = null;
+    function showToast(msg) {
+      const box = document.getElementById("app-toast");
+      const text = document.getElementById("app-toast-text");
+      if (!box || !text) return;
+      text.textContent = msg;
+      box.classList.remove("opacity-0", "translate-y-2");
+      box.classList.add("opacity-100", "translate-y-0");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.remove("opacity-100", "translate-y-0");
+        box.classList.add("opacity-0", "translate-y-2");
+      }, 2400);
+    }
+
+    function applyThemeAndFont() {
+      document.documentElement.classList.toggle("dark", state.darkMode);
+      document.documentElement.style.setProperty("--dhikr-size", `${FONT_STEPS[state.fontIndex]}rem`);
+
+      const iconEl = document.getElementById("theme-icon");
+      if (iconEl) {
+        iconEl.innerHTML = state.darkMode
+          ? `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`
+          : `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+      }
+    }
+
+    function updateNavStyles() {
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        const isActive = btn.dataset.tab === state.activeTab;
+        btn.classList.toggle("text-emeraldDeep-700", isActive);
+        btn.classList.toggle("dark:text-emerald-400", isActive);
+        btn.classList.toggle("bg-emeraldDeep-50/90", isActive);
+        btn.classList.toggle("dark:bg-emerald-950/60", isActive);
+        btn.classList.toggle("text-slate-500", !isActive);
+        btn.classList.toggle("dark:text-slate-400", !isActive);
+      });
+    }
+
+    /* =========================================================================
+       SECTION 1: ابدأ هنا
+       ========================================================================= */
+    function renderStartTab() {
+      const wStep = APP_DATA.wuduSteps[state.wuduIndex];
+      const totalWudu = APP_DATA.wuduSteps.length;
+
+      return `
+        <div class="space-y-4 fade-in">
+          <!-- Warm Welcome Card -->
+          <section class="rounded-2xl bg-gradient-to-br from-emeraldDeep-800 to-emeraldDeep-700 dark:from-emerald-900 dark:to-teal-950 text-white p-5 shadow-md relative overflow-hidden">
+            <div class="absolute -left-6 -top-6 w-28 h-28 rounded-full bg-white/5 pointer-events-none"></div>
+            <div class="absolute -bottom-8 left-12 w-24 h-24 rounded-full bg-goldWarm-400/15 pointer-events-none"></div>
+            <span class="inline-flex items-center gap-1.5 text-[11px] font-medium bg-white/15 px-2.5 py-1 rounded-full mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
+              بداية هادئة وميسّرة
+            </span>
+            <h2 class="text-lg font-bold leading-snug mb-2">${APP_DATA.welcome.title}</h2>
+            <p class="text-xs sm:text-sm text-emerald-50/90 leading-relaxed mb-4">${APP_DATA.welcome.subtitle}</p>
+            <div class="flex flex-wrap gap-2">
+              <button id="btn-start-pray-cta" type="button" class="inline-flex items-center gap-2 bg-white text-emeraldDeep-800 hover:bg-emerald-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-sm transition active:scale-[0.98]">
+                <span>ابدأ تعلّم أول صلاة</span>
+                <svg class="w-4 h-4 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <button id="btn-start-reading-cta" type="button" class="inline-flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white font-semibold text-xs px-3.5 py-2.5 rounded-xl border border-white/20 transition">
+                <span>ورقة القراءة أثناء الصلاة</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Before You Start Collapsible Card -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 overflow-hidden shadow-xs">
+            <button id="btn-toggle-before-card" type="button" aria-expanded="${state.beforeCardOpen}" class="w-full px-4 py-3.5 flex items-center justify-between gap-3 text-right">
+              <div class="flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                </span>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900 dark:text-white">قبل أن تكبّر (3 أمور سريعة)</h3>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">القبلة، اللباس، ومتى تحتاج لإعادة الوضوء</p>
+                </div>
+              </div>
+              <svg class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${state.beforeCardOpen ? "rotate-180 text-emeraldDeep-600" : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            ${state.beforeCardOpen ? `
+              <div class="px-4 pb-4 pt-1 space-y-2.5 border-t border-stone-100 dark:border-slate-800 fade-in">
+                ${APP_DATA.beforePrayerChecklist.map(item => `
+                  <div class="rounded-xl bg-cream-50 dark:bg-slate-900/60 border border-stone-100 dark:border-slate-800 p-3">
+                    <span class="text-xs font-bold text-emeraldDeep-800 dark:text-emerald-400 block mb-0.5">${item.title}</span>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${item.text}</p>
+                  </div>
+                `).join("")}
+              </div>
+            ` : ""}
+          </section>
+
+          <!-- Interactive Wudu Card -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white">الوضوء خطوة بخطوة</h3>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">اسحب البطاقة أو اضغط للتنقل بين الخطوات</p>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emeraldDeep-50 dark:bg-emerald-950 text-emeraldDeep-700 dark:text-emerald-300">
+                ${state.wuduIndex + 1} / ${totalWudu}
+              </span>
+            </div>
+
+            <div id="wudu-swipe-area" class="rounded-xl bg-cream-50 dark:bg-slate-900/60 border border-stone-100 dark:border-slate-800 p-4 text-center select-none">
+              <div class="mb-2">${SVG_LIBRARY[wStep.svg]}</div>
+              <div class="inline-flex items-center gap-2 mb-1.5">
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">${wStep.title}</h4>
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300">${wStep.count}</span>
+              </div>
+              <p class="text-sm text-slate-700 dark:text-slate-200 leading-relaxed mb-2">${wStep.action}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-slate-800/60 rounded-lg px-3 py-1.5 inline-block">${wStep.tip}</p>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 mt-3.5">
+              <button id="btn-wudu-prev" type="button" ${state.wuduIndex === 0 ? "disabled" : ""} class="px-3.5 py-2 rounded-xl text-xs font-semibold border border-stone-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 hover:bg-stone-50 dark:hover:bg-slate-800 transition">
+                السابق
+              </button>
+              <div class="flex items-center gap-1.5">
+                ${APP_DATA.wuduSteps.map((_, idx) => `
+                  <button data-wudu-dot="${idx}" type="button" aria-label="خطوة الوضوء ${idx + 1}" class="h-2 rounded-full transition-all ${idx === state.wuduIndex ? "w-5 bg-emeraldDeep-600 dark:bg-emerald-400" : "w-2 bg-stone-300 dark:bg-slate-700"}"></button>
+                `).join("")}
+              </div>
+              <button id="btn-wudu-next" type="button" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-emeraldDeep-700 hover:bg-emeraldDeep-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white transition">
+                ${state.wuduIndex === totalWudu - 1 ? "إعادة" : "التالي"}
+              </button>
+            </div>
+          </section>
+
+          <!-- 5 Prayers Quick Visual Summary -->
+          <section>
+            <div class="flex items-center justify-between mb-2.5 px-0.5">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">عدد ركعات الصلوات الخمس</h3>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400">اضغط على أي صلاة لتعلّمها</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              ${APP_DATA.prayers.map(p => `
+                <button data-quick-prayer="${p.id}" type="button" class="text-right rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-3.5 hover:border-emeraldDeep-500 dark:hover:border-emerald-500 transition shadow-xs active:scale-[0.98] group">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-sm text-slate-900 dark:text-white group-hover:text-emeraldDeep-700 dark:group-hover:text-emerald-400 transition">${p.name}</span>
+                    <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emeraldDeep-50 dark:bg-emerald-950 text-emeraldDeep-700 dark:text-emerald-300">${p.rakahs} ركعات</span>
+                  </div>
+                  <div class="flex items-center gap-1 mb-1.5" aria-hidden="true">
+                    ${Array.from({ length: p.rakahs }).map(() => `<span class="w-2.5 h-2.5 rounded-full bg-emeraldDeep-600/80 dark:bg-emerald-400/80"></span>`).join("")}
+                  </div>
+                  <p class="text-[11px] text-slate-500 dark:text-slate-400">${p.timeHint}</p>
+                </button>
+              `).join("")}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       SECTION 2: صلِّ معي
+       ========================================================================= */
+    function renderPrayTab() {
+      const prayer = APP_DATA.prayers.find(p => p.id === state.selectedPrayerId) || APP_DATA.prayers[0];
+      const steps = buildPrayerSteps(prayer.id, state.prayerMode);
+      if (state.stepIndex >= steps.length) state.stepIndex = steps.length - 1;
+      const current = steps[state.stepIndex];
+      const progressPct = Math.round(((state.stepIndex + 1) / steps.length) * 100);
+      const todayRec = getTodayRecord();
+      const alreadyLogged = Boolean(todayRec[prayer.id]);
+
+      const modeToggleHtml = `
+        <div class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-1.5 grid grid-cols-2 gap-1.5 shadow-xs">
+          <button data-mode="easy" type="button" class="py-2 px-2.5 rounded-xl text-xs font-bold transition ${state.prayerMode === "easy" ? "bg-emeraldDeep-700 dark:bg-emerald-600 text-white shadow-sm" : "text-slate-600 dark:text-slate-300 hover:bg-stone-100 dark:hover:bg-slate-800"}">
+            البداية السهلة (الأساسيات)
+          </button>
+          <button data-mode="full" type="button" class="py-2 px-2.5 rounded-xl text-xs font-bold transition ${state.prayerMode === "full" ? "bg-emeraldDeep-700 dark:bg-emerald-600 text-white shadow-sm" : "text-slate-600 dark:text-slate-300 hover:bg-stone-100 dark:hover:bg-slate-800"}">
+            الوضع الكامل (مع السنن)
+          </button>
+        </div>
+      `;
+
+      const prayerPickerHtml = `
+        <div class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar pb-1" role="tablist" aria-label="اختر الصلاة">
+          ${APP_DATA.prayers.map(p => `
+            <button data-select-prayer="${p.id}" type="button" class="shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold border transition ${p.id === prayer.id ? "bg-emeraldDeep-50 dark:bg-emerald-950/80 border-emeraldDeep-600 dark:border-emerald-500 text-emeraldDeep-800 dark:text-emerald-300" : "bg-white dark:bg-[#131E22] border-stone-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"}">
+              ${p.name} <span class="opacity-70">(${p.rakahs})</span>
+            </button>
+          `).join("")}
+        </div>
+      `;
+
+      if (state.prayerCompleted) {
+        return `
+          <div class="space-y-4 fade-in">
+            ${modeToggleHtml}
+            ${prayerPickerHtml}
+
+            <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-emeraldDeep-200 dark:border-emerald-900 p-5 text-center shadow-sm">
+              <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-emeraldDeep-50 dark:bg-emerald-950 text-emeraldDeep-700 dark:text-emerald-400 flex items-center justify-center">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <h2 class="text-lg font-bold text-slate-900 dark:text-white mb-1">تقبّل الله منك صلاة ${prayer.name}!</h2>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">خطوة جميلة جداً.. كل مرة تصلي فيها ستشعر بأنها أصبحت أسهل وأقرب لقلبك.</p>
+
+              <div class="flex flex-col sm:flex-row gap-2 justify-center mb-5">
+                <button id="btn-log-completed-prayer" type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition ${alreadyLogged ? "bg-emeraldDeep-50 dark:bg-emerald-950 text-emeraldDeep-700 dark:text-emerald-300 border border-emeraldDeep-200 dark:border-emerald-800" : "bg-emeraldDeep-700 hover:bg-emeraldDeep-800 dark:bg-emerald-600 text-white"}">
+                  ${alreadyLogged ? "مسجّلة في صلوات اليوم ✓" : `سجّل صلاة ${prayer.name} في متابع اليوم ✓`}
+                </button>
+                <button id="btn-restart-prayer" type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-stone-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-stone-50 dark:hover:bg-slate-800 transition">
+                  إعادة خطوات ${prayer.name}
+                </button>
+              </div>
+
+              <div class="text-right rounded-xl bg-cream-50 dark:bg-slate-900/70 border border-stone-200/70 dark:border-slate-800 p-4 space-y-3">
+                <h3 class="text-xs font-bold text-emeraldDeep-800 dark:text-emerald-400">أذكار مختصرة ولطيفة بعد الصلاة (سُنّة)</h3>
+                ${APP_DATA.liturgy.afterPrayer.map(item => `
+                  <div class="border-b last:border-b-0 border-stone-200/60 dark:border-slate-800 pb-2.5 last:pb-0">
+                    <span class="text-[11px] font-semibold text-goldWarm-600 dark:text-amber-300 block mb-0.5">${item.label}</span>
+                    <p class="dhikr-text text-slate-900 dark:text-slate-100">${item.text}</p>
+                  </div>
+                `).join("")}
+              </div>
+            </section>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="space-y-3.5 fade-in">
+          ${modeToggleHtml}
+          ${prayerPickerHtml}
+
+          <!-- Quick Reading Banner -->
+          <button id="btn-pray-open-sheet" type="button" class="w-full rounded-2xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 px-3.5 py-2.5 flex items-center justify-between gap-2 text-right hover:bg-amber-100/70 dark:hover:bg-amber-950/50 transition">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-700 dark:text-amber-300 flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </span>
+              <div class="min-w-0">
+                <span class="block text-xs font-bold text-amber-950 dark:text-amber-200 truncate">تريد أن تصلي الآن وتقرأ من الهاتف؟</span>
+                <span class="block text-[11px] text-amber-800/80 dark:text-amber-300/80 truncate">افتح «ورقة القراءة» في صفحة واحدة بدون لمس الشاشة</span>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-amber-800 dark:text-amber-300 shrink-0">فتح ←</span>
+          </button>
+
+          <!-- Progress Header -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-3.5 shadow-xs">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emeraldDeep-700 dark:bg-emerald-600 text-white shrink-0">${current.rakahLabel}</span>
+                <span class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">${current.title}</span>
+              </div>
+              <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 shrink-0">${state.stepIndex + 1} / ${steps.length}</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-stone-100 dark:bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emeraldDeep-600 dark:bg-emerald-500 rounded-full transition-all duration-300" style="width: ${progressPct}%"></div>
+            </div>
+            <div class="flex items-center justify-between mt-2 text-[11px] text-slate-500 dark:text-slate-400 gap-2">
+              <span>${current.voiceHint}</span>
+              ${state.stepIndex > 0 ? `<button id="btn-reset-step" type="button" class="text-emeraldDeep-700 dark:text-emerald-400 font-semibold hover:underline shrink-0">البدء من الأول</button>` : ""}
+            </div>
+          </section>
+
+          <!-- Main Step Card -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-4 shadow-sm space-y-4">
+            <!-- 3D Image (with automatic fallback to SVG) -->
+            <div class="rounded-xl bg-[#FCFBF8] dark:bg-[#18262B] border border-stone-100 dark:border-slate-800 p-2">
+              ${renderPostureVisual(current.svg, current.title)}
+            </div>
+
+            ${current.transitionBadge ? `
+              <div class="rounded-xl bg-amber-50 dark:bg-amber-950/35 border border-amber-200/80 dark:border-amber-800/50 px-3 py-2 text-xs font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                <span>${current.transitionBadge}</span>
+              </div>
+            ` : ""}
+
+            <!-- 1. What to do with body -->
+            <div class="rounded-xl bg-stone-50 dark:bg-slate-800/60 p-3 border border-stone-200/60 dark:border-slate-700/60">
+              <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block mb-1">ماذا تفعل بجسمك:</span>
+              <p class="text-sm font-medium text-slate-800 dark:text-slate-100 leading-relaxed">${current.bodyAction}</p>
+            </div>
+
+            <!-- 2. What to say -->
+            <div class="space-y-2.5">
+              <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400 block px-0.5">ماذا تقول:</span>
+              ${current.sayBlocks.map(block => `
+                <div class="rounded-xl p-4 border ${block.type === "sunnah" ? "bg-amber-50/70 dark:bg-amber-950/25 border-amber-200/80 dark:border-amber-800/50" : "bg-emeraldDeep-50/60 dark:bg-emerald-950/35 border-emeraldDeep-200/80 dark:border-emerald-800/60"}">
+                  <div class="flex items-center justify-between gap-2 mb-2">
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md ${block.type === "sunnah" ? "bg-amber-200/70 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200" : "bg-emeraldDeep-100 dark:bg-emerald-900/70 text-emeraldDeep-800 dark:text-emerald-200"}">${block.badge}</span>
+                    ${block.repeatTag ? `<span class="text-xs font-bold text-emeraldDeep-700 dark:text-emerald-300">${block.repeatTag}</span>` : ""}
+                  </div>
+                  <p class="dhikr-text text-slate-900 dark:text-white">${block.text}</p>
+                  ${block.subNote ? `<p class="text-xs font-medium text-emeraldDeep-700 dark:text-emerald-300 mt-2 pt-2 border-t border-emeraldDeep-200/50 dark:border-emerald-800/50">${block.subNote}</p>` : ""}
+                </div>
+              `).join("")}
+
+              ${current.easyHint ? `<p class="text-[11px] text-slate-500 dark:text-slate-400 px-1">${current.easyHint}</p>` : ""}
+              ${current.nextHint ? `<p class="text-xs font-medium text-emeraldDeep-700 dark:text-emerald-300 bg-emeraldDeep-50/60 dark:bg-emerald-950/30 border border-emeraldDeep-200/50 dark:border-emerald-800/50 rounded-xl px-3 py-2.5 leading-relaxed">${current.nextHint}</p>` : ""}
+            </div>
+
+            <!-- Large Step Controls -->
+            <div class="grid grid-cols-2 gap-2.5 pt-1">
+              <button id="btn-step-prev" type="button" ${state.stepIndex === 0 ? "disabled" : ""} class="py-3.5 px-4 rounded-xl text-sm font-bold border border-stone-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 hover:bg-stone-50 dark:hover:bg-slate-800 transition active:scale-[0.98]">
+                الخطوة السابقة
+              </button>
+              <button id="btn-step-next" type="button" class="py-3.5 px-4 rounded-xl text-sm font-bold bg-emeraldDeep-700 hover:bg-emeraldDeep-800 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white shadow-sm transition active:scale-[0.98]">
+                ${state.stepIndex === steps.length - 1 ? "أتممت الصلاة ✓" : "الخطوة التالية"}
+              </button>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       SECTION 3: ركن الحفظ (مع مشغّل صوتي + تبطيء السرعة + معاني + اختبار الحفظ)
+       ========================================================================= */
+    function decorateMeanings(text, meanings) {
+      if (!meanings) return text;
+      let html = text;
+      Object.keys(meanings).forEach(word => {
+        const isActive = state.selectedMeaning && state.selectedMeaning.word === word;
+        const safeWord = word.replace(/"/g, "&quot;");
+        html = html.replace(
+          word,
+          `<span class="meaning-word ${isActive ? "active-word" : ""}" data-meaning-word="${safeWord}" role="button" tabindex="0">${word}</span>`
+        );
+      });
+      return html;
+    }
+
+    function renderMemorizeTab() {
+      const items = APP_DATA.memorizationItems;
+      const active = items.find(i => i.id === state.activeMemId) || items[0];
+      const memorizedCount = items.filter(i => state.memorized[i.id]).length;
+      const currentReps = state.reps[active.id] || 0;
+      const isMemorized = Boolean(state.memorized[active.id]);
+
+      return `
+        <div class="space-y-4 fade-in">
+          <!-- Overall Progress -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-4 shadow-xs">
+            <div class="flex items-center justify-between mb-2">
+              <div>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white">خطة الحفظ بالأولوية</h2>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">ابدأ بالفاتحة، ثم التشهد، ولا تستعجل</p>
+              </div>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emeraldDeep-50 dark:bg-emerald-950 text-emeraldDeep-700 dark:text-emerald-300">
+                تم حفظ ${memorizedCount} / ${items.length}
+              </span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-stone-100 dark:bg-slate-800 overflow-hidden">
+              <div class="h-full bg-emeraldDeep-600 dark:bg-emerald-500 rounded-full transition-all duration-300" style="width: ${(memorizedCount / items.length) * 100}%"></div>
+            </div>
+          </section>
+
+          <!-- Priority Selector Cards -->
+          <div class="grid grid-cols-2 gap-2">
+            ${items.map(item => {
+              const selected = item.id === active.id;
+              const done = Boolean(state.memorized[item.id]);
+              return `
+                <button data-mem-id="${item.id}" type="button" class="text-right rounded-2xl p-3 border transition ${selected ? "bg-emeraldDeep-50/90 dark:bg-emerald-950/60 border-emeraldDeep-600 dark:border-emerald-500 shadow-xs" : "bg-white dark:bg-[#131E22] border-stone-200/80 dark:border-slate-800"}">
+                  <div class="flex items-center justify-between gap-1 mb-1">
+                    <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-stone-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">أولوية ${item.priority}</span>
+                    ${done ? `<span class="text-xs font-bold text-emeraldDeep-700 dark:text-emerald-400">✓ محفوظ</span>` : ""}
+                  </div>
+                  <div class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-snug">${item.title}</div>
+                </button>
+              `;
+            }).join("")}
+          </div>
+
+          <!-- Active Memorization Tool -->
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-4 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 dark:border-slate-800 pb-3">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white">${active.title}</h3>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">${active.subtitle}</p>
+              </div>
+              <button id="btn-toggle-recall" type="button" class="px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${state.recallMode ? "bg-amber-500 text-white shadow-sm" : "bg-stone-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-stone-200 dark:hover:bg-slate-700"}">
+                <span>${state.recallMode ? "إنهاء اختبار الحفظ" : "اختبر حفظك"}</span>
+              </button>
+            </div>
+
+            <!-- Audio Player Bar -->
+            <div class="rounded-xl bg-stone-50 dark:bg-slate-900/70 border border-stone-200/70 dark:border-slate-800 p-3 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <button id="btn-audio-play" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emeraldDeep-700 hover:bg-emeraldDeep-800 dark:bg-emerald-600 text-white text-xs font-bold transition active:scale-95">
+                  ${state.audioPlaying && currentAudioItemId === active.id
+                    ? `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg><span>إيقاف</span>`
+                    : `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg><span>استمع</span>`
+                  }
+                </button>
+                <span class="text-[11px] text-slate-600 dark:text-slate-300 truncate flex-1 text-right">${active.audioLabel}</span>
+                <button id="btn-audio-speed" type="button" title="تغيير سرعة الصوت للمساعدة في الحفظ" class="px-2 py-1 rounded-lg bg-white dark:bg-slate-800 border border-stone-200 dark:border-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-200 shrink-0">
+                  ${state.audioSpeed === 1 ? "سرعة 1x" : "بطيء 0.8x"}
+                </button>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-stone-200 dark:bg-slate-800 overflow-hidden">
+                <div id="audio-progress-bar" class="h-full bg-emeraldDeep-600 dark:bg-emerald-400 transition-all duration-150" style="width: ${currentAudioItemId === active.id ? state.audioProgress : 0}%"></div>
+              </div>
+              <p id="audio-error-msg" class="text-[11px] text-amber-700 dark:text-amber-300 ${state.audioErrorMsg ? "" : "hidden"}">${state.audioErrorMsg}</p>
+            </div>
+
+            ${state.recallMode ? `
+              <div class="flex items-center justify-between gap-2 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/50 px-3 py-2 text-xs text-amber-900 dark:text-amber-200">
+                <span>اضغط على أي مقطع مخفي لتكشفه وتختبر حفظك.</span>
+                <button id="btn-reveal-all" type="button" class="font-bold underline shrink-0">كشف الكل</button>
+              </div>
+            ` : `
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                تلميح: اضغط على أي كلمة تحتها خط منقّط لمعرفة معناها المبسط.
+              </p>
+            `}
+
+            ${state.selectedMeaning && !state.recallMode ? `
+              <div class="rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 p-3 flex items-start justify-between gap-3 fade-in">
+                <div>
+                  <span class="text-xs font-bold text-amber-900 dark:text-amber-300 block mb-0.5">معنى «${state.selectedMeaning.word}»:</span>
+                  <p class="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">${state.selectedMeaning.meaning}</p>
+                </div>
+                <button id="btn-close-meaning" type="button" aria-label="إغلاق المعنى" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-bold px-1">✕</button>
+              </div>
+            ` : ""}
+
+            <!-- Segments List -->
+            <div class="space-y-2.5">
+              ${active.segments.map((seg, idx) => {
+                const chunkKey = `${active.id}_${idx}`;
+                const isHidden = state.recallMode && !state.revealedChunks[chunkKey];
+                return `
+                  <div data-chunk-key="${chunkKey}" class="rounded-xl border border-stone-200/70 dark:border-slate-800 bg-cream-50 dark:bg-slate-900/50 p-3.5 transition ${state.recallMode ? "cursor-pointer hover:border-amber-400" : ""}">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emeraldDeep-700 dark:text-emerald-400">${seg.label ? seg.label : `المقطع ${idx + 1}`}</span>
+                      ${state.recallMode ? `<span class="text-[10px] text-slate-400">${isHidden ? "اضغط للكشف" : "مكشوف ✓"}</span>` : ""}
+                    </div>
+                    <p class="dhikr-text text-slate-900 dark:text-white ${isHidden ? "recall-hidden" : "recall-revealed"}">
+                      ${state.recallMode ? seg.text : decorateMeanings(seg.text, active.meanings)}
+                    </p>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+
+            <!-- Repetition Counter + Mark Memorized -->
+            <div class="pt-2 border-t border-stone-100 dark:border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              <div class="flex items-center justify-between sm:justify-start gap-2 bg-stone-50 dark:bg-slate-800/70 rounded-xl px-3 py-2 border border-stone-200/70 dark:border-slate-700">
+                <span class="text-xs font-semibold text-slate-700 dark:text-slate-200">قرأتها: <strong class="text-emeraldDeep-700 dark:text-emerald-400">${currentReps} / ${active.targetReps}</strong></span>
+                <div class="flex items-center gap-1.5">
+                  <button id="btn-rep-add" type="button" class="px-3 py-1 rounded-lg bg-emeraldDeep-700 dark:bg-emerald-600 text-white text-xs font-bold hover:bg-emeraldDeep-800 transition active:scale-95">+1</button>
+                  ${currentReps > 0 ? `<button id="btn-rep-reset" type="button" class="px-2 py-1 rounded-lg text-[11px] text-slate-500 hover:bg-stone-200 dark:hover:bg-slate-700 transition">تصفير</button>` : ""}
+                </div>
+              </div>
+
+              <button id="btn-toggle-memorized" type="button" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition ${isMemorized ? "bg-emeraldDeep-700 dark:bg-emerald-600 text-white shadow-sm" : "border border-emeraldDeep-600 text-emeraldDeep-700 dark:text-emerald-400 hover:bg-emeraldDeep-50 dark:hover:bg-emerald-950/50"}">
+                ${isMemorized ? "تم الحفظ ✓" : "تحديد كـ «تم الحفظ» ✓"}
+              </button>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       SECTION 4: الثبات
+       ========================================================================= */
+    function renderConsistencyTab() {
+      const todayRec = getTodayRecord();
+      const todayCount = countPrayersOnDate(getLocalDateKey(0));
+      const streak = calculateStreak();
+
+      const todayLabel = new Intl.DateTimeFormat("ar", {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+      }).format(new Date());
+
+      const streakMessage = streak === 0
+        ? "كل يوم جديد هو فرصة لبداية جميلة.. سجّل أول صلاة اليوم."
+        : streak === 1
+          ? "بداية رائعة! الاستمرار أهم من الكمال."
+          : `ما شاء الله، مستمر منذ ${streak} أيام متواصلة. ثبتك الله!`;
+
+      return `
+        <div class="space-y-5 fade-in">
+          <section class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 p-4 shadow-sm space-y-4">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">${todayLabel}</span>
+                <h2 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">متابع صلوات اليوم</h2>
+              </div>
+              <div class="text-center px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/50 shrink-0">
+                <div class="text-lg font-bold text-amber-700 dark:text-amber-300 leading-none">${streak}</div>
+                <div class="text-[10px] font-semibold text-amber-800/80 dark:text-amber-200/80 mt-0.5">أيام الاستمرار</div>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-600 dark:text-slate-300 bg-cream-50 dark:bg-slate-900/60 rounded-xl px-3 py-2 border border-stone-100 dark:border-slate-800">
+              ${streakMessage}
+            </p>
+
+            <div class="space-y-2">
+              ${APP_DATA.prayers.map(p => {
+                const checked = Boolean(todayRec[p.id]);
+                return `
+                  <button data-track-prayer="${p.id}" type="button" class="w-full flex items-center justify-between px-4 py-3 rounded-xl border transition active:scale-[0.99] ${checked ? "bg-emeraldDeep-50 dark:bg-emerald-950/50 border-emeraldDeep-500 dark:border-emerald-600" : "bg-white dark:bg-slate-900/40 border-stone-200 dark:border-slate-800 hover:border-stone-300 dark:hover:border-slate-700"}">
+                    <div class="flex items-center gap-3">
+                      <span class="w-6 h-6 rounded-lg flex items-center justify-center border transition ${checked ? "bg-emeraldDeep-700 dark:bg-emerald-600 border-emeraldDeep-700 dark:border-emerald-600 text-white" : "border-stone-300 dark:border-slate-600"}">
+                        ${checked ? `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>` : ""}
+                      </span>
+                      <div class="text-right">
+                        <span class="block text-sm font-bold ${checked ? "text-emeraldDeep-800 dark:text-emerald-300" : "text-slate-800 dark:text-slate-100"}">${p.name}</span>
+                        <span class="block text-[11px] text-slate-500 dark:text-slate-400">${p.rakahs} ركعات • ${p.timeHint}</span>
+                      </div>
+                    </div>
+                    <span class="text-xs font-bold ${checked ? "text-emeraldDeep-700 dark:text-emerald-400" : "text-slate-400"}">
+                      ${checked ? "تمّت ✓" : "اضغط للتسجيل"}
+                    </span>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <span class="text-slate-500 dark:text-slate-400">إنجاز اليوم: <strong class="text-emeraldDeep-700 dark:text-emerald-400">${todayCount} / 5</strong></span>
+              <span class="text-[11px] text-slate-400">يتصفّر تلقائياً مع بداية كل يوم جديد</span>
+            </div>
+          </section>
+
+          <section class="space-y-2.5">
+            <div class="px-0.5">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">أسئلة تطمئنك</h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400">إجابات مريحة لأكثر ما يدور في بال المبتدئ</p>
+            </div>
+
+            <div class="space-y-2">
+              ${APP_DATA.faqs.map((faq, idx) => {
+                const isOpen = state.openFaqIndex === idx;
+                return `
+                  <div class="rounded-2xl bg-white dark:bg-[#131E22] border border-stone-200/80 dark:border-slate-800 overflow-hidden shadow-xs">
+                    <button data-faq-index="${idx}" type="button" aria-expanded="${isOpen}" class="w-full text-right px-4 py-3.5 flex items-center justify-between gap-3">
+                      <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 leading-snug">${faq.q}</span>
+                      <svg class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-emeraldDeep-600 dark:text-emerald-400" : ""}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    ${isOpen ? `
+                      <div class="px-4 pb-4 pt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-stone-100 dark:border-slate-800/80 fade-in">
+                        ${faq.a}
+                      </div>
+                    ` : ""}
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       RENDER & EVENT BINDING
+       ========================================================================= */
+    function renderApp() {
+      applyThemeAndFont();
+      updateNavStyles();
+
+      const main = document.getElementById("app-main");
+      if (!main) return;
+
+      if (state.activeTab === "start") {
+        main.innerHTML = renderStartTab();
+        bindStartEvents();
+      } else if (state.activeTab === "pray") {
+        main.innerHTML = renderPrayTab();
+        bindPrayEvents();
+      } else if (state.activeTab === "memorize") {
+        main.innerHTML = renderMemorizeTab();
+        bindMemorizeEvents();
+      } else if (state.activeTab === "consistency") {
+        main.innerHTML = renderConsistencyTab();
+        bindConsistencyEvents();
+      }
+    }
+
+    function bindStartEvents() {
+      const cta = document.getElementById("btn-start-pray-cta");
+      if (cta) {
+        cta.addEventListener("click", () => {
+          state.activeTab = "pray";
+          state.prayerCompleted = false;
+          renderApp();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      const sheetBtn = document.getElementById("btn-start-reading-cta");
+      if (sheetBtn) sheetBtn.addEventListener("click", openReadingSheet);
+
+      const beforeBtn = document.getElementById("btn-toggle-before-card");
+      if (beforeBtn) {
+        beforeBtn.addEventListener("click", () => {
+          state.beforeCardOpen = !state.beforeCardOpen;
+          renderApp();
+        });
+      }
+
+      const prevWudu = document.getElementById("btn-wudu-prev");
+      if (prevWudu) {
+        prevWudu.addEventListener("click", () => {
+          if (state.wuduIndex > 0) {
+            state.wuduIndex--;
+            renderApp();
+          }
+        });
+      }
+
+      const nextWudu = document.getElementById("btn-wudu-next");
+      if (nextWudu) {
+        nextWudu.addEventListener("click", () => {
+          state.wuduIndex = (state.wuduIndex + 1) % APP_DATA.wuduSteps.length;
+          renderApp();
+        });
+      }
+
+      document.querySelectorAll("[data-wudu-dot]").forEach(dot => {
+        dot.addEventListener("click", () => {
+          state.wuduIndex = Number(dot.dataset.wuduDot);
+          renderApp();
+        });
+      });
+
+      const swipeArea = document.getElementById("wudu-swipe-area");
+      if (swipeArea) {
+        let touchStartX = 0;
+        swipeArea.addEventListener("touchstart", e => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        swipeArea.addEventListener("touchend", e => {
+          const diff = e.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && state.wuduIndex < APP_DATA.wuduSteps.length - 1) {
+              state.wuduIndex++;
+              renderApp();
+            } else if (diff < 0 && state.wuduIndex > 0) {
+              state.wuduIndex--;
+              renderApp();
+            }
+          }
+        }, { passive: true });
+      }
+
+      document.querySelectorAll("[data-quick-prayer]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.selectedPrayerId = btn.dataset.quickPrayer;
+          state.stepIndex = 0;
+          state.prayerCompleted = false;
+          state.activeTab = "pray";
+          renderApp();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    }
+
+    function bindPrayEvents() {
+      const sheetBtn = document.getElementById("btn-pray-open-sheet");
+      if (sheetBtn) sheetBtn.addEventListener("click", openReadingSheet);
+
+      document.querySelectorAll("[data-mode]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const nextMode = btn.dataset.mode;
+          if (state.prayerMode !== nextMode) {
+            state.prayerMode = nextMode;
+            state.stepIndex = 0;
+            state.prayerCompleted = false;
+            saveState();
+            renderApp();
+            showToast(nextMode === "easy" ? "تم تفعيل وضع البداية السهلة" : "تم تفعيل الوضع الكامل مع السنن");
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-select-prayer]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.selectedPrayerId = btn.dataset.selectPrayer;
+          state.stepIndex = 0;
+          state.prayerCompleted = false;
+          renderApp();
+        });
+      });
+
+      const prevBtn = document.getElementById("btn-step-prev");
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          if (state.stepIndex > 0) {
+            state.stepIndex--;
+            renderApp();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        });
+      }
+
+      const nextBtn = document.getElementById("btn-step-next");
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          const steps = buildPrayerSteps(state.selectedPrayerId, state.prayerMode);
+          if (state.stepIndex < steps.length - 1) {
+            state.stepIndex++;
+          } else {
+            state.prayerCompleted = true;
+          }
+          renderApp();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      const resetStep = document.getElementById("btn-reset-step");
+      if (resetStep) {
+        resetStep.addEventListener("click", () => {
+          state.stepIndex = 0;
+          renderApp();
+        });
+      }
+
+      const restartPrayer = document.getElementById("btn-restart-prayer");
+      if (restartPrayer) {
+        restartPrayer.addEventListener("click", () => {
+          state.stepIndex = 0;
+          state.prayerCompleted = false;
+          renderApp();
+        });
+      }
+
+      const logCompleted = document.getElementById("btn-log-completed-prayer");
+      if (logCompleted) {
+        logCompleted.addEventListener("click", () => {
+          const rec = getTodayRecord();
+          rec[state.selectedPrayerId] = true;
+          saveState();
+          renderApp();
+          showToast("تم تسجيل الصلاة في متابع اليوم ✓");
+        });
+      }
+    }
+
+    function bindMemorizeEvents() {
+      const active = APP_DATA.memorizationItems.find(i => i.id === state.activeMemId) || APP_DATA.memorizationItems[0];
+
+      document.querySelectorAll("[data-mem-id]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          if (state.activeMemId !== btn.dataset.memId) {
+            stopAudio();
+          }
+          state.activeMemId = btn.dataset.memId;
+          state.selectedMeaning = null;
+          state.revealedChunks = {};
+          renderApp();
+        });
+      });
+
+      const playBtn = document.getElementById("btn-audio-play");
+      if (playBtn) {
+        playBtn.addEventListener("click", () => toggleItemAudio(active));
+      }
+
+      const speedBtn = document.getElementById("btn-audio-speed");
+      if (speedBtn) {
+        speedBtn.addEventListener("click", () => {
+          state.audioSpeed = state.audioSpeed === 1 ? 0.8 : 1;
+          audioEl.playbackRate = state.audioSpeed;
+          renderApp();
+          showToast(state.audioSpeed === 0.8 ? "تم تبطيء الصوت للمساعدة في الحفظ (0.8x)" : "السرعة العادية (1x)");
+        });
+      }
+
+      const recallBtn = document.getElementById("btn-toggle-recall");
+      if (recallBtn) {
+        recallBtn.addEventListener("click", () => {
+          state.recallMode = !state.recallMode;
+          state.revealedChunks = {};
+          state.selectedMeaning = null;
+          renderApp();
+        });
+      }
+
+      const revealAllBtn = document.getElementById("btn-reveal-all");
+      if (revealAllBtn) {
+        revealAllBtn.addEventListener("click", () => {
+          active.segments.forEach((_, idx) => {
+            state.revealedChunks[`${active.id}_${idx}`] = true;
+          });
+          renderApp();
+        });
+      }
+
+      document.querySelectorAll("[data-chunk-key]").forEach(box => {
+        box.addEventListener("click", () => {
+          if (!state.recallMode) return;
+          const key = box.dataset.chunkKey;
+          state.revealedChunks[key] = !state.revealedChunks[key];
+          renderApp();
+        });
+      });
+
+      document.querySelectorAll("[data-meaning-word]").forEach(span => {
+        span.addEventListener("click", e => {
+          e.stopPropagation();
+          const word = span.dataset.meaningWord;
+          const meaning = active.meanings && active.meanings[word];
+          if (meaning) {
+            state.selectedMeaning = { word, meaning };
+            renderApp();
+          }
+        });
+      });
+
+      const closeMeaning = document.getElementById("btn-close-meaning");
+      if (closeMeaning) {
+        closeMeaning.addEventListener("click", () => {
+          state.selectedMeaning = null;
+          renderApp();
+        });
+      }
+
+      const repAdd = document.getElementById("btn-rep-add");
+      if (repAdd) {
+        repAdd.addEventListener("click", () => {
+          state.reps[active.id] = (state.reps[active.id] || 0) + 1;
+          saveState();
+          renderApp();
+          if (state.reps[active.id] === active.targetReps) {
+            showToast("ممتاز! أتممت 5 تكرارات");
+          }
+        });
+      }
+
+      const repReset = document.getElementById("btn-rep-reset");
+      if (repReset) {
+        repReset.addEventListener("click", () => {
+          state.reps[active.id] = 0;
+          saveState();
+          renderApp();
+        });
+      }
+
+      const memToggle = document.getElementById("btn-toggle-memorized");
+      if (memToggle) {
+        memToggle.addEventListener("click", () => {
+          state.memorized[active.id] = !state.memorized[active.id];
+          saveState();
+          renderApp();
+          showToast(state.memorized[active.id] ? "رائع! تم الحفظ بنجاح ✓" : "تم إلغاء علامة الحفظ");
+        });
+      }
+    }
+
+    function bindConsistencyEvents() {
+      document.querySelectorAll("[data-track-prayer]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.trackPrayer;
+          const rec = getTodayRecord();
+          rec[id] = !rec[id];
+          saveState();
+          renderApp();
+          if (rec[id]) {
+            const count = countPrayersOnDate(getLocalDateKey(0));
+            showToast(count === 5 ? "ما شاء الله! أتممت صلوات اليوم الخمس ✓" : "تقبّل الله منك ✓");
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-faq-index]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.dataset.faqIndex);
+          state.openFaqIndex = state.openFaqIndex === idx ? -1 : idx;
+          renderApp();
+        });
+      });
+    }
+
+    /* =========================================================================
+       GLOBAL HEADER, MODAL & NAV LISTENERS
+       ========================================================================= */
+    document.getElementById("btn-theme-toggle").addEventListener("click", () => {
+      state.darkMode = !state.darkMode;
+      saveState();
+      applyThemeAndFont();
+    });
+
+    function changeFont(delta) {
+      const next = state.fontIndex + delta;
+      if (next >= 0 && next < FONT_STEPS.length) {
+        state.fontIndex = next;
+        saveState();
+        applyThemeAndFont();
+        showToast(delta > 0 ? "تم تكبير خط الأذكار" : "تم تصغير خط الأذكار");
+      }
+    }
+
+    document.getElementById("btn-font-inc").addEventListener("click", () => changeFont(1));
+    document.getElementById("btn-font-dec").addEventListener("click", () => changeFont(-1));
+    document.getElementById("btn-sheet-font-inc").addEventListener("click", () => changeFont(1));
+    document.getElementById("btn-sheet-font-dec").addEventListener("click", () => changeFont(-1));
+
+    document.getElementById("btn-header-reading-sheet").addEventListener("click", openReadingSheet);
+    document.getElementById("btn-close-reading-sheet").addEventListener("click", closeReadingSheet);
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (state.activeTab === "memorize" && btn.dataset.tab !== "memorize") {
+          stopAudio();
+        }
+        state.activeTab = btn.dataset.tab;
+        renderApp();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
+    // Initial render
+    renderApp();
+  </script>
+</body>
+</html>
